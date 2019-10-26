@@ -1,3 +1,4 @@
+# Based on https://www.roytuts.com/python-flask-file-upload-example/
 import os
 import urllib.request
 from app import app
@@ -42,30 +43,4 @@ def upload_file():
 			return redirect(request.url)
 
 if __name__ == "__main__":
-    app.run()
-Step 3. Now we need template page for uploading file. This is upload.html page kept under subdirectory – templates. You can use this page for uploading single file.
-
-<!doctype html>
-<title>Python Flask File Upload Example</title>
-<h2>Select a file to upload</h2>
-<p>
-	{% with messages = get_flashed_messages() %}
-	  {% if messages %}
-		<ul class=flashes>
-		{% for message in messages %}
-		  <li>{{ message }}</li>
-		{% endfor %}
-		</ul>
-	  {% endif %}
-	{% endwith %}
-</p>
-<form method="post" action="/" enctype="multipart/form-data">
-    <dl>
-		<p>
-			<input type="file" name="file" autocomplete="off" required>
-		</p>
-    </dl>
-    <p>
-		<input type="submit" value="Submit">
-	</p>
-</form>
+    app.run(host='0.0.0.0', port=80)
