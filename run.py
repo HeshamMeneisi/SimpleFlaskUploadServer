@@ -42,4 +42,6 @@ def upload_file():
 			return redirect(request.url)
 
 if __name__ == "__main__":
+    if not os.path.exists(UPLOAD_FOLDER):
+        os.mkdir(UPLOAD_FOLDER)
     app.run(host='0.0.0.0', port=80)
