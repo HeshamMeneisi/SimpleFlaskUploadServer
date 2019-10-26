@@ -5,7 +5,7 @@ from flask import Flask, flash, request, redirect, render_template
 from werkzeug.utils import secure_filename
 from flask import Flask
 
-UPLOAD_FOLDER = '~/uploads'
+UPLOAD_FOLDER = './uploads'
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
@@ -43,5 +43,5 @@ def upload_file():
 
 if __name__ == "__main__":
     if not os.path.exists(UPLOAD_FOLDER):
-        os.mkdir(UPLOAD_FOLDER)
+        os.mkdir(os.abspath(UPLOAD_FOLDER)
     app.run(host='0.0.0.0', port=80)
